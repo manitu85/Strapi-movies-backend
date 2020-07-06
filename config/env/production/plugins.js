@@ -1,5 +1,4 @@
 module.exports = ({ env }) => {
-  if (env('NODE_ENV') === 'production') {
     return {
       upload: {
         provider: "cloudinary",
@@ -10,6 +9,5 @@ module.exports = ({ env }) => {
         }
       },
     }
-  }
 };
 
