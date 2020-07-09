@@ -40,6 +40,10 @@
     "genres": {
       "via": "movies",
       "collection": "genre"
+    },
+    "rating": {
+      "via": "movies",
+      "model": "rating"
     }
   }
 }

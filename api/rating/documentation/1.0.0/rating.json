@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/movies": {
+    "/ratings": {
       "get": {
         "deprecated": false,
-        "description": "Find all the movies's records",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve movies document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Movies"
+                    "$ref": "#/components/schemas/Rating"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Movies"
+          "Rating"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new movies record",
+        "description": "Create a new record",
         "responses": {
           "200": {
-            "description": "Retrieve movies document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Movies"
+                  "$ref": "#/components/schemas/Rating"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Movies"
+          "Rating"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewMovies"
+                "$ref": "#/components/schemas/NewRating"
               }
             }
           }
         }
       }
     },
-    "/movies/count": {
+    "/ratings/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of movies documents",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve movies document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Movies"
+          "Rating"
         ],
         "parameters": []
       }
     },
-    "/movies/{id}": {
+    "/ratings/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one movies record",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve movies document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Movies"
+                  "$ref": "#/components/schemas/Rating"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Movies"
+          "Rating"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single movies record",
+        "description": "Update a record",
         "responses": {
           "200": {
-            "description": "Retrieve movies document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Movies"
+                  "$ref": "#/components/schemas/Rating"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Movies"
+          "Rating"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewMovies"
+                "$ref": "#/components/schemas/NewRating"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single movies record",
+        "description": "Delete a record",
         "responses": {
           "200": {
-            "description": "deletes a single movies based on the ID supplied",
+            "description": "deletes a single record based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Movies"
+          "Rating"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Movies": {
+      "Rating": {
         "required": [
           "id"
         ],
@@ -522,105 +522,10 @@
           "id": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
+          "mark": {
+            "type": "integer"
           },
-          "release_date": {
-            "type": "string"
-          },
-          "poster": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              }
-            }
-          },
-          "actors": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "first_name": {
-                  "type": "string"
-                },
-                "last_name": {
-                  "type": "string"
-                },
-                "movies": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "description": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "genres": {
+          "movies": {
             "type": "array",
             "items": {
               "required": [
@@ -633,32 +538,31 @@
                 "title": {
                   "type": "string"
                 },
-                "slug": {
+                "release_date": {
                   "type": "string"
                 },
-                "movies": {
+                "poster": {
+                  "type": "string"
+                },
+                "actors": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
-                }
-              }
-            }
-          },
-          "rating": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "mark": {
-                "type": "integer"
-              },
-              "movies": {
-                "type": "array",
-                "items": {
+                },
+                "description": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "genres": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "rating": {
                   "type": "string"
                 }
               }
@@ -666,34 +570,16 @@
           }
         }
       },
-      "NewMovies": {
+      "NewRating": {
         "properties": {
-          "title": {
-            "type": "string"
+          "mark": {
+            "type": "integer"
           },
-          "release_date": {
-            "type": "string"
-          },
-          "actors": {
+          "movies": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "description": {
-            "type": "string"
-          },
-          "slug": {
-            "type": "string"
-          },
-          "genres": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "rating": {
-            "type": "string"
           }
         }
       }
@@ -701,7 +587,7 @@
   },
   "tags": [
     {
-      "name": "Movies"
+      "name": "Rating"
     }
   ]
 }

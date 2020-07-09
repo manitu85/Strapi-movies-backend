@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ratings",
+  "info": {
+    "name": "Rating"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "mark": {
+      "type": "integer"
+    },
+    "movies": {
+      "collection": "movies",
+      "via": "rating"
+    }
+  }
+}
